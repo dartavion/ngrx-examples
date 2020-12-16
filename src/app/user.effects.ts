@@ -13,10 +13,10 @@ export class UserEffects {
   loadUsers$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(UserActions.loadUsers),
-      tap(() => console.log('load users')),
+      tap(() => console.log('first button')),
       switchMap(() => this.actions$.pipe(
         ofType(UserActions.loadUsersSuccess),
-        tap(() => console.log('load poop')))
+        tap(() => console.log('2nd button')))
       ),
       concatMap(() =>
         /** An EMPTY observable only emits completion. Replace with your own observable API request */
